@@ -42,6 +42,7 @@
             subject: [
               { name: "机试", score: 99 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 99 },
             ],
           },
           {
@@ -49,6 +50,7 @@
             subject: [
               { name: "机试", score: 100 },
               { name: "笔试", score: 38 },
+              { name: "平均分", score: 69 },
             ],
           },
           {
@@ -56,6 +58,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 50 },
+              { name: "平均分", score: 60 },
             ],
           },
           {
@@ -63,6 +66,7 @@
             subject: [
               { name: "机试", score: 92 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 92 },
             ],
           },
         ],
@@ -75,6 +79,7 @@
             subject: [
               { name: "机试", score: 90 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 90 },
             ],
           },
           {
@@ -82,6 +87,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 51 },
+              { name: "平均分", score: 60.5 },
             ],
           },
           {
@@ -89,6 +95,7 @@
             subject: [
               { name: "机试", score: 65 },
               { name: "笔试", score: 29 },
+              { name: "平均分", score: 47 },
             ],
           },
           {
@@ -96,6 +103,7 @@
             subject: [
               { name: "机试", score: 50 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 50 },
             ],
           },
         ],
@@ -108,6 +116,7 @@
             subject: [
               { name: "机试", score: 75 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 75 },
             ],
           },
           {
@@ -115,6 +124,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 45 },
+              { name: "平均分", score: 57.5 },
             ],
           },
           {
@@ -122,6 +132,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 60 },
+              { name: "平均分", score: 65 },
             ],
           },
           {
@@ -129,6 +140,7 @@
             subject: [
               { name: "机试", score: 50 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 50 },
             ],
           },
         ],
@@ -141,6 +153,7 @@
             subject: [
               { name: "机试", score: 75 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 75 },
             ],
           },
           {
@@ -148,6 +161,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 62 },
+              { name: "平均分", score: 66 },
             ],
           },
           {
@@ -155,6 +169,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 58 },
+              { name: "平均分", score: 64 },
             ],
           },
           {
@@ -162,6 +177,7 @@
             subject: [
               { name: "机试", score: 65 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 65 },
             ],
           },
         ],
@@ -174,6 +190,7 @@
             subject: [
               { name: "机试", score: 95 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 95 },
             ],
           },
           {
@@ -181,6 +198,7 @@
             subject: [
               { name: "机试", score: 75 },
               { name: "笔试", score: 65 },
+              { name: "平均分", score: 70 },
             ],
           },
           {
@@ -188,6 +206,7 @@
             subject: [
               { name: "机试", score: 75 },
               { name: "笔试", score: 36 },
+              { name: "平均分", score: 55.5 },
             ],
           },
           {
@@ -195,6 +214,7 @@
             subject: [
               { name: "机试", score: 95 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 95 },
             ],
           },
         ],
@@ -207,6 +227,7 @@
             subject: [
               { name: "机试", score: 85 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 85 },
             ],
           },
           {
@@ -214,6 +235,7 @@
             subject: [
               { name: "机试", score: 99 },
               { name: "笔试", score: 67 },
+              { name: "平均分", score: 83 },
             ],
           },
           {
@@ -221,6 +243,7 @@
             subject: [
               { name: "机试", score: 70 },
               { name: "笔试", score: 49 },
+              { name: "平均分", score: 59.5 },
             ],
           },
           {
@@ -228,6 +251,7 @@
             subject: [
               { name: "机试", score: 90 },
               { name: "笔试", score: 0 },
+              { name: "平均分", score: 90 },
             ],
           },
         ],
@@ -253,6 +277,15 @@
       function initEcharts(dataIndex = 0) {
         var myChart = echarts.init(document.getElementById("main"));
         option = {
+          tooltip: {
+            trigger: "axis",
+            axisPointer: {
+              type: "cross",
+              crossStyle: {
+                color: "#999",
+              },
+            },
+          },
           legend: {
             data: ["机试", "笔试"],
             top: "6%",
@@ -262,7 +295,28 @@
             left: "center",
           },
           xAxis: { type: "category", data: xData(dataIndex) },
-          yAxis: { type: "value" },
+          yAxis: [
+            {
+              type: "value",
+              name: "成绩",
+              min: 0,
+              max: 100,
+              interval: 10,
+              axisLabel: {
+                formatter: "{value} 分",
+              },
+            },
+            {
+              type: "value",
+              name: "平均分",
+              min: 0,
+              max: 100,
+              interval: 25,
+              axisLabel: {
+                formatter: "{value} 分",
+              },
+            },
+          ],
           series: getScore(dataIndex),
         };
         option && myChart.setOption(option);
@@ -284,6 +338,11 @@
         let bishiScore = students[dataIndex].result.map((item) => {
           return item.subject.filter((item) => {
             return item.name == "笔试";
+          })[0].score;
+        });
+        let pingjunScore = students[dataIndex].result.map((item) => {
+          return item.subject.filter((item) => {
+            return item.name == "平均分";
           })[0].score;
         });
         return [
@@ -328,6 +387,17 @@
                 },
               },
             },
+          },
+          {
+            name: "平均分",
+            type: "line",
+            yAxisIndex: 1,
+            tooltip: {
+              valueFormatter: function (value) {
+                return value + " 分";
+              },
+            },
+            data: pingjunScore,
           },
         ];
       }
